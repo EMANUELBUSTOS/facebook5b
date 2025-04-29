@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "ingesoft";
-    private $username = "estudiante";
-    private $password = "estudiante1234";
+    private $db_name = "facebook5b";
+    private $username = "facebook5b";
+    private $password = "facebook5b";
     private $conn;
 
     public function getConnection() {
