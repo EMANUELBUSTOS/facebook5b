@@ -1,24 +1,28 @@
 <?php
+
 class Database {
     private $host = "localhost";
     private $db_name = "facebook5b";
     private $username = "facebook5b";
     private $password = "facebook5b";
-    private $conn;
+    public $conn;
 
-    public function getConnection() {
+    public function conectar() {
         $this->conn = null;
+
         try {
-            $dsn = "mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4";
-            $this->conn = new PDO($dsn, $this->username, $this->password, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name, 
+                $this->username, 
+                $this->password
+            );
+            $this->conn->exec("set names utf8");
         } catch (PDOException $exception) {
-            error_log("Connection error: " . $exception->getMessage());
-            throw new Exception("No se pudo conectar a la base de datos.");
+            die("Error de conexión: " . $exception->getMessage());
         }
+
         return $this->conn;
     }
 }
-?>
+
+
