@@ -11,7 +11,7 @@ class LoginController {
         $password = $_POST['password'];
     
         // Validar usuario especial "AdminLeo"
-        if ($username === 'AdminLeo' && $password === 'AdminLeo') {
+        if ($username === 'AdminLeo1' && $password === 'AdminLeo1') {
             // Redirigir a un formulario especial para AdminLeo
             header('Location: /facebook5b/public/formulario_admin');
             exit;
