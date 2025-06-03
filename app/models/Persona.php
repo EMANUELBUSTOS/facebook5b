@@ -56,7 +56,7 @@ class Persona {
                     t.numero_telefonico 
                 FROM persona p
                 LEFT JOIN sexo s ON p.sexo_id = s.id
-                LEFT JOIN estadoCivil ec ON p.estadocivil_id = ec.id
+                LEFT JOIN estadoCivil ec ON p.estadoCivil_id = ec.id
                 LEFT JOIN direccion d ON p.id = d.persona_id
                 LEFT JOIN telefono t ON p.id = t.persona_id";
         $stmt = $this->conn->prepare($sql);
